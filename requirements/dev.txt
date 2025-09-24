@@ -23,7 +23,7 @@ attrs==25.3.0
     #   referencing
 babel==2.17.0
     # via sphinx
-black==23.1
+black==23.1.0
     # via -r requirements/dev.in
 blinker==1.9.0
     # via
@@ -79,6 +79,8 @@ frozenlist==1.7.0
     # via
     #   aiohttp
     #   aiosignal
+greenlet==3.2.4
+    # via sqlalchemy
 idna==3.10
     # via
     #   requests
@@ -153,6 +155,7 @@ platformdirs==4.4.0
 pluggy==1.6.0
     # via
     #   pytest
+    #   pytest-cov
     #   tox
 propcache==0.3.2
     # via
@@ -171,6 +174,7 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 pyproject-api==1.9.1
@@ -183,7 +187,7 @@ pytest==8.4.2
     #   pytest-cov
     #   pytest-env
     #   pytest-ordering
-pytest-cov==4.1.0
+pytest-cov==7.0.0
     # via -r requirements/tests.in
 pytest-env==1.1.5
     # via -r requirements/tests.in
