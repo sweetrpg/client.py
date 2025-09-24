@@ -23,7 +23,7 @@ attrs==25.3.0
     #   referencing
 babel==2.17.0
     # via sphinx
-black==23.1.0
+black==23.1
     # via -r requirements/dev.in
 blinker==1.9.0
     # via
@@ -51,7 +51,7 @@ coverage[toml]==7.10.7
     # via
     #   coverage-badge
     #   pytest-cov
-coverage-badge==1.1.0
+coverage-badge==1.1.2
     # via -r requirements/tests.in
 distlib==0.4.0
     # via virtualenv
@@ -79,8 +79,6 @@ frozenlist==1.7.0
     # via
     #   aiohttp
     #   aiosignal
-greenlet==1.1.2
-    # via -r requirements/tests.in
 idna==3.10
     # via
     #   requests
@@ -173,7 +171,6 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
-    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 pyproject-api==1.9.1
@@ -186,13 +183,13 @@ pytest==8.4.2
     #   pytest-cov
     #   pytest-env
     #   pytest-ordering
-pytest-cov==4.0.0
+pytest-cov==4.1.0
     # via -r requirements/tests.in
 pytest-env==1.1.5
     # via -r requirements/tests.in
 pytest-ordering==0.6
     # via -r requirements/tests.in
-python-dotenv==0.21.0
+python-dotenv==1.1.1
     # via -r requirements/tests.in
 pyyaml==6.0.2
     # via responses
@@ -270,7 +267,7 @@ sweetrpg-model-core==0.0.155
     #   sweetrpg-api-core
     #   sweetrpg-db
     #   sweetrpg-library-objects
-tox==4.4.6
+tox==4.30.2
     # via -r requirements/tests.in
 typer==0.19.2
     # via rstcheck

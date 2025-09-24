@@ -120,7 +120,6 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
-    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 referencing==0.36.2
