@@ -155,6 +155,7 @@ platformdirs==4.4.0
 pluggy==1.6.0
     # via
     #   pytest
+    #   pytest-cov
     #   tox
 propcache==0.3.2
     # via
@@ -186,7 +187,7 @@ pytest==8.4.2
     #   pytest-cov
     #   pytest-env
     #   pytest-ordering
-pytest-cov==4.1.0
+pytest-cov==7.0.0
     # via -r requirements/tests.in
 pytest-env==1.1.5
     # via -r requirements/tests.in
