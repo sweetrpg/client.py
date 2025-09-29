@@ -145,7 +145,7 @@ pallets-sphinx-themes==2.3.0
     # via -r requirements/docs.in
 pathspec==0.12.1
     # via black
-pip-tools==6.12.3
+pip-tools==7.5.0
     # via -r requirements/dev.in
 platformdirs==4.4.0
     # via
@@ -180,7 +180,9 @@ pymongo[srv]==3.13.0
 pyproject-api==1.9.1
     # via tox
 pyproject-hooks==1.2.0
-    # via build
+    # via
+    #   build
+    #   pip-tools
 pytest==8.4.2
     # via
     #   -r requirements/tests.in
@@ -227,7 +229,7 @@ six==1.17.0
     # via flask-rest-jsonapi
 snowballstemmer==3.0.1
     # via sphinx
-sphinx==5.1.1
+sphinx==6.2.1
     # via
     #   -r requirements/docs.in
     #   pallets-sphinx-themes
