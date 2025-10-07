@@ -277,7 +277,7 @@ sweetrpg-model-core==0.0.155
     #   sweetrpg-api-core
     #   sweetrpg-db
     #   sweetrpg-library-objects
-tox==4.30.2
+tox==4.30.3
     # via -r requirements/tests.in
 typer==0.19.2
     # via rstcheck
