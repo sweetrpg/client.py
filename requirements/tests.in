@@ -7,5 +7,5 @@ pytest-cov~=7.0
 pytest-env
 pytest-ordering
 python-dotenv~=1.0
-tox~=4.0
+tox~=4.31
 responses

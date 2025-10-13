@@ -64,7 +64,7 @@ docutils==0.21.2
     #   rstcheck-core
     #   sphinx
     #   sphinx-tabs
-filelock==3.19.1
+filelock==3.20.0
     # via
     #   tox
     #   virtualenv
@@ -79,6 +79,8 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
+greenlet==3.2.4
+    # via sqlalchemy
 idna==3.10
     # via
     #   requests
@@ -146,7 +148,7 @@ pathspec==0.12.1
     # via black
 pip-tools==7.5.1
     # via -r requirements/dev.in
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via
     #   black
     #   tox
@@ -173,6 +175,7 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 pyproject-api==1.9.1
@@ -275,7 +278,7 @@ sweetrpg-model-core==0.0.155
     #   sweetrpg-api-core
     #   sweetrpg-db
     #   sweetrpg-library-objects
-tox==4.30.3
+tox==4.31.0
     # via -r requirements/tests.in
 typer==0.19.2
     # via rstcheck
