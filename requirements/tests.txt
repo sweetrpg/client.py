@@ -45,7 +45,7 @@ dnspython==2.8.0
     # via
     #   pymongo
     #   sweetrpg-db
-filelock==3.19.1
+filelock==3.20.0
     # via
     #   tox
     #   virtualenv
@@ -60,6 +60,8 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
+greenlet==3.2.4
+    # via sqlalchemy
 idna==3.10
     # via
     #   requests
@@ -107,7 +109,7 @@ packaging==25.0
     #   pyproject-api
     #   pytest
     #   tox
-platformdirs==4.4.0
+platformdirs==4.5.0
     # via
     #   tox
     #   virtualenv
@@ -125,6 +127,7 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 pyproject-api==1.9.1
@@ -180,7 +183,7 @@ sweetrpg-model-core==0.0.155
     #   sweetrpg-api-core
     #   sweetrpg-db
     #   sweetrpg-library-objects
-tox==4.30.3
+tox==4.32.0
     # via -r requirements/tests.in
 typing-extensions==4.15.0
     # via
