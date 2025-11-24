@@ -10,7 +10,7 @@ aiohttp==3.13.0
     # via jsonapi-client
 aiosignal==1.4.0
     # via aiohttp
-asgiref==3.10.0
+asgiref==3.11.0
     # via -r requirements/tests.in
 attrs==25.4.0
     # via
