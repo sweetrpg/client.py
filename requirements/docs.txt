@@ -51,6 +51,8 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
+greenlet==3.2.4
+    # via sqlalchemy
 idna==3.10
     # via
     #   requests
@@ -121,6 +123,7 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 referencing==0.36.2
@@ -134,7 +137,7 @@ requests==2.32.5
     #   sphinx
 rich==14.1.0
     # via typer
-roman-numerals-py==3.1.0
+roman-numerals==3.1.0
     # via sphinx
 rpds-py==0.27.1
     # via
@@ -150,7 +153,7 @@ six==1.17.0
     # via flask-rest-jsonapi
 snowballstemmer==3.0.1
     # via sphinx
-sphinx==8.2.3
+sphinx==9.0.0
     # via
     #   -r requirements/docs.in
     #   pallets-sphinx-themes

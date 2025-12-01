@@ -1,6 +1,6 @@
 -r pkg.in
 Pallets-Sphinx-Themes
-Sphinx~=8.0
+Sphinx~=9.0
 sphinx-issues
 sphinxcontrib-log-cabinet
 sphinx-tabs
