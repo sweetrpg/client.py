@@ -51,6 +51,8 @@ frozenlist==1.8.0
     # via
     #   aiohttp
     #   aiosignal
+greenlet==3.5.0
+    # via sqlalchemy
 idna==3.10
     # via
     #   requests
@@ -121,6 +123,7 @@ pygments==2.19.2
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 referencing==0.36.2
@@ -162,7 +165,7 @@ sphinx-issues==5.0.1
     # via -r requirements/docs.in
 sphinx-notfound-page==1.1.0
     # via pallets-sphinx-themes
-sphinx-tabs==3.4.7
+sphinx-tabs==3.5.0
     # via -r requirements/docs.in
 sphinxcontrib-applehelp==2.0.0
     # via sphinx
