@@ -212,7 +212,7 @@ requests==2.32.5
     #   jsonapi-client
     #   responses
     #   sphinx
-responses==0.25.8
+responses==0.26.0
     # via -r requirements/tests.in
 rich==14.1.0
     # via typer
