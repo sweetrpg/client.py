@@ -81,7 +81,7 @@ jobs:
       - name: coverage-badge
         continue-on-error: true
         run: |
-          PCT=$(tox exec -e ${{ matrix.tox }} -- coverage report --format=total | grep -E '^[0-9]+$' | tail -1)
+          PCT=$(tox exec -e ${{ matrix.tox }} -- coverage report | grep '^TOTAL' | grep -oE '[0-9]+%' | tr -d '%')
           COLOR=$(awk -v p="$PCT" 'BEGIN { if (p>=80) print "brightgreen"; else if (p>=50) print "yellow"; else print "red" }')
           printf '{"schemaVersion":1,"label":"coverage","message":"%s%%","color":"%s"}\n' \
             "$PCT" "$COLOR" > coverage-pages/coverage-badge.json
@@ -105,11 +105,15 @@ jobs:
         run: pip install -r requirements/docs.txt
       - name: make-docs
         run: cd docs && make html
+      # keep_files: true - without it, this root-level publish (no destination_dir)
+      # wipes the whole branch by default, deleting the tests job's coverage/
+      # subfolder that ran moments earlier in the same workflow.
       - name: publish-docs
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/_build/html
+          keep_files: true
 
   publish:
     needs: [tests]
