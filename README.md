@@ -1,7 +1,7 @@
 # Client
 
 [![Unit tests](https://github.com/sweetrpg/client/actions/workflows/python-ci.yml/badge.svg)](https://github.com/sweetrpg/client/actions/workflows/python-ci.yml)
-[![Coverage](https://github.com/sweetrpg/client/blob/develop/coverage.svg)](https://github.com/sweetrpg/client)
+[![Coverage](https://img.shields.io/endpoint?url=https://sweetrpg.github.io/client.py/coverage/coverage-badge.json)](https://sweetrpg.github.io/client.py/coverage/)
 [![PyPI version](https://badgen.net/pypi/v/sweetrpg-client)](https://pypi.org/project/sweetrpg-client)
 [![License](https://img.shields.io/github/license/sweetrpg/client.svg)](https://img.shields.io/github/license/sweetrpg/client.svg)
 [![Issues](https://img.shields.io/github/issues/sweetrpg/client.svg)](https://img.shields.io/github/issues/sweetrpg/client.svg)
