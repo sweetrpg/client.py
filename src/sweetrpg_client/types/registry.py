@@ -5,22 +5,22 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 
 from ..constants import *
 from ..types import *
-from sweetrpg_library_objects.api.volume.schema import VolumeAPISchema
-from sweetrpg_library_objects.api.license.schema import LicenseAPISchema
-from sweetrpg_library_objects.api.person.schema import PersonAPISchema
-from sweetrpg_library_objects.api.contribution.schema import ContributionAPISchema
-from sweetrpg_library_objects.api.publisher.schema import PublisherAPISchema
-from sweetrpg_library_objects.api.studio.schema import StudioAPISchema
-from sweetrpg_library_objects.api.system.schema import SystemAPISchema
-from sweetrpg_library_objects.api.review.schema import ReviewAPISchema
-from sweetrpg_library_objects.model.volume import Volume
-from sweetrpg_library_objects.model.person import Person
-from sweetrpg_library_objects.model.contribution import Contribution
-from sweetrpg_library_objects.model.publisher import Publisher
-from sweetrpg_library_objects.model.system import System
-from sweetrpg_library_objects.model.studio import Studio
-from sweetrpg_library_objects.model.review import Review
-from sweetrpg_library_objects.model.license import License
+from sweetrpg_shelf_objects.api.volume.schema import VolumeAPISchema
+from sweetrpg_shelf_objects.api.license.schema import LicenseAPISchema
+from sweetrpg_shelf_objects.api.person.schema import PersonAPISchema
+from sweetrpg_shelf_objects.api.contribution.schema import ContributionAPISchema
+from sweetrpg_shelf_objects.api.publisher.schema import PublisherAPISchema
+from sweetrpg_shelf_objects.api.studio.schema import StudioAPISchema
+from sweetrpg_shelf_objects.api.system.schema import SystemAPISchema
+from sweetrpg_shelf_objects.api.review.schema import ReviewAPISchema
+from sweetrpg_shelf_objects.model.volume import Volume
+from sweetrpg_shelf_objects.model.person import Person
+from sweetrpg_shelf_objects.model.contribution import Contribution
+from sweetrpg_shelf_objects.model.publisher import Publisher
+from sweetrpg_shelf_objects.model.system import System
+from sweetrpg_shelf_objects.model.studio import Studio
+from sweetrpg_shelf_objects.model.review import Review
+from sweetrpg_shelf_objects.model.license import License
 
 
 _types = {
