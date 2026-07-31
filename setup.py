@@ -7,7 +7,7 @@ setup(
         "marshmallow==3.14.1",
         "sweetrpg-model-core",
         "sweetrpg-api-core",
-        "sweetrpg-library-objects",
+        "sweetrpg-shelf-objects",
         "requests",
         "jsonapi-client"
     ],

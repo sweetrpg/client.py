@@ -1,6 +1,6 @@
 marshmallow~=3.0
 sweetrpg-api-core
 sweetrpg-model-core
-sweetrpg-library-objects
+sweetrpg-shelf-objects
 requests~=2.0
 jsonapi-client
