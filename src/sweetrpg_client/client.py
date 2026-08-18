@@ -15,7 +15,7 @@ from jsonapi_client import Session
 from sweetrpg_client.helpers import _flatten_object
 
 
-__logger = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 
 
 class Client(object):
@@ -57,20 +57,20 @@ class Client(object):
         :param str id:
         :return Model:
         """
-        __logger.debug("Fetching data type %s ID %s...", data_type, id)
+        _logger.debug("Fetching data type %s ID %s...", data_type, id)
 
         type_info = self.data_types.get(data_type)
-        __logger.debug("type_info: %s", type_info)
+        _logger.debug("type_info: %s", type_info)
         if not type_info:
             raise UnknownDataType(data_type)
 
         path = type_info[constants.ENDPOINT_PATH]
-        __logger.debug("path: %s", path)
+        _logger.debug("path: %s", path)
         # url = f"{self.base_url}/{path}/{id}"
-        # __logger.debug("url: %s", url)
+        # _logger.debug("url: %s", url)
         headers = {}
         if self.access_token:
-            __logger.debug("adding access token to request headers")
+            _logger.debug("adding access token to request headers")
             headers['Authorization'] = f"Bearer {self.access_token}"
 
         propagate.inject(headers)
@@ -80,7 +80,7 @@ class Client(object):
             # 'params': params,
         }
 
-        __logger.info("Sending request to %s...", self.base_url)
+        _logger.info("Sending request to %s...", self.base_url)
 
         with Session(self.base_url, request_kwargs=request_args) as s:
             result = s.get(path, id)
@@ -91,9 +91,9 @@ class Client(object):
 
             flat_obj = _flatten_object(result.resource)
             obj_class = type_info[constants.OBJECT_CLASS]
-            __logger.debug("obj_class: %s", obj_class)
+            _logger.debug("obj_class: %s", obj_class)
             obj = obj_class(**flat_obj)
-            __logger.debug("obj: %s", obj)
+            _logger.debug("obj: %s", obj)
             return obj
 
     def query(self, data_type: str, page: int = 0, limit: int = constants.DEFAULT_PAGE_SIZE) -> list:
@@ -104,20 +104,20 @@ class Client(object):
         :param limit:
         :return list[Model]:
         """
-        __logger.debug("Querying for data type %s, page %d, limit %d...", data_type, page, limit)
+        _logger.debug("Querying for data type %s, page %d, limit %d...", data_type, page, limit)
 
         type_info = self.data_types.get(data_type)
-        __logger.debug("type_info: %s", type_info)
+        _logger.debug("type_info: %s", type_info)
         if not type_info:
             raise UnknownDataType(data_type)
 
         path = type_info[constants.ENDPOINT_PATH]
-        __logger.debug("path: %s", path)
+        _logger.debug("path: %s", path)
         # url = f"{self.base_url}/{path}/"
-        # __logger.debug("url: %s", url)
+        # _logger.debug("url: %s", url)
         headers = {}
         if self.access_token:
-            __logger.debug("adding access token to request headers")
+            _logger.debug("adding access token to request headers")
             headers['Authorization'] = f"Bearer {self.access_token}"
         params = {}
         if page > 0:
@@ -132,7 +132,7 @@ class Client(object):
             'params': params,
         }
 
-        __logger.info("Sending request to %s...", self.base_url)
+        _logger.info("Sending request to %s...", self.base_url)
 
         with Session(self.base_url, request_kwargs=request_args) as s:
             result = s.get(path)
@@ -143,9 +143,9 @@ class Client(object):
 
             flat_objs = list(map(_flatten_object, result.resources))
             obj_class = type_info[constants.OBJECT_CLASS]
-            __logger.debug("obj_class: %s", obj_class)
+            _logger.debug("obj_class: %s", obj_class)
             objs = list(map(lambda o: obj_class(**o), flat_objs))
-            __logger.debug("objs: %s", objs)
+            _logger.debug("objs: %s", objs)
             return objs
 
         # r = requests.get(url, headers=headers, params=params)
