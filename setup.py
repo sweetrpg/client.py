@@ -9,7 +9,8 @@ setup(
         "sweetrpg-api-core",
         "sweetrpg-shelf-objects",
         "requests",
-        "jsonapi-client"
+        "jsonapi-client",
+        "opentelemetry-api",
     ],
     extras_require={},
 )
