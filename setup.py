@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     name="sweetrpg-client",
     install_requires=[
-        "marshmallow==3.14.1",
+        "marshmallow==3.26.1",
         "sweetrpg-model-core",
         "sweetrpg-api-core",
         "sweetrpg-shelf-objects",
