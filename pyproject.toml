@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sweetrpg-client"
-version = "0.0.57"
+dynamic = ["version"]
 description = "API client library for SweetRPG services"
 readme = "README.md"
 license = "MIT"
@@ -56,6 +56,9 @@ docs = [
     "sphinx-tabs",
     "rstcheck",
 ]
+
+[tool.hatch.version]
+path = "src/sweetrpg_client/__init__.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
