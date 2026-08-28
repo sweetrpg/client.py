@@ -1,3 +1,8 @@
+## [0.1.1] - 2026-08-28
+
+### 🐛 Bug Fixes
+
+- Actually publish to PyPI on release
 # Changelog
 
 ## [Unreleased]
