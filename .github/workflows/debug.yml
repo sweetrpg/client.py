@@ -1,23 +1,14 @@
 name: Debug
 
 on:
-    create:
-        tags:
-            - '*'
-    release:
-        types:
-            - published
-            - created
-    push:
-        branches:
-            - '*'
-
+    workflow_dispatch:
+      
 jobs:
   debug:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -51,7 +42,7 @@ jobs:
           with_initial_version: true
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v6
         with:
           images: |
             registry.sweetrpg.com/sweetrpg-client

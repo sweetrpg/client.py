@@ -1,3 +1,12 @@
+## [0.1.1] - 2026-08-28
+
+### 🐛 Bug Fixes
+
+- Actually publish to PyPI on release
+
+### ⚙️ Miscellaneous Tasks
+
+- *(release)* Merge master into develop after v0.1.0 (release run failed before this step, pre-sweetrpg-db-fix)
 ## [0.1.0] - 2026-08-28
 
 ### 🚀 Features
