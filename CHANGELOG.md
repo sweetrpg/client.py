@@ -1,5 +1,15 @@
 # Changelog
 
+## [Unreleased]
+
+- Migrated packaging to uv (pyproject.toml + uv.lock), replacing setup.py/setup.cfg/tox.ini.
+- Fixed the type registry's dependency: it was wired to `sweetrpg-shelf-objects`/
+  `sweetrpg-library-objects`, but the classes it actually uses are Catalog domain objects -
+  renamed to `sweetrpg-catalog-objects`.
+- Replaced the ad hoc `relekang/python-semantic-release` publish step with the standard
+  prepare-release/release/tag-release workflow family.
+- Repo scaffolding brought up to platform baseline (dependabot, community docs, AGENTS.md).
+
 <!--next-version-placeholder-->
 
 ## v0.0.57 (2022-03-10)
