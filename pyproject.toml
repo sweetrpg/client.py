@@ -65,7 +65,15 @@ packages = ["src/sweetrpg_client"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-filterwarnings = ["error"]
+filterwarnings = [
+    "error",
+    # sweetrpg-catalog-objects==0.0.175's schema classes use marshmallow's deprecated
+    # `default=` kwarg (should be `dump_default`). Can't fix at the source - that repo's
+    # develop branch has no code for this module (src/sweetrpg_catalog_objects/__init__.py
+    # only), so whatever produced the published wheel isn't reachable to patch right now.
+    # Still functional under the pinned marshmallow==3.26.1, just deprecated.
+    "ignore::marshmallow.warnings.RemovedInMarshmallow4Warning",
+]
 
 [tool.coverage.run]
 branch = true
