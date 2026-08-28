@@ -1,3 +1,8 @@
+## [0.1.2] - 2026-08-28
+
+### 🐛 Bug Fixes
+
+- Refresh lockfile, fix stale test imports, scope one upstream warning
 ## [0.1.0] - 2026-08-28
 
 ### 🚀 Features
