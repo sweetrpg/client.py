@@ -1,3 +1,24 @@
+## [0.1.0] - 2026-08-28
+
+### 🚀 Features
+
+- *(ci)* Add coverage step summary, artifact, threshold, badge (#99)
+
+### 🐛 Bug Fixes
+
+- *(ci)* Fix coverage badge percentage parsing and gh-pages wipe race (#100)
+- *(client)* Propagate traceparent context and use structured logging
+- Avoid python name-mangling on __logger inside class methods
+- Bump marshmallow pin to 3.26.1, matching locked requirements
+
+### 🚜 Refactor
+
+- Rename sweetrpg-library-objects dependency to shelf-objects (#101)
+- Migrate to uv packaging and fix wrong catalog-objects dependency name
+
+### ⚙️ Miscellaneous Tasks
+
+- Add repo scaffolding baseline (dependabot, community docs, AGENTS.md)
 # Changelog
 
 ## [Unreleased]
