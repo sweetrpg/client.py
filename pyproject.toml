@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sweetrpg-client"
+version = "0.0.57"
+description = "API client library for SweetRPG services"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.14"
+authors = [
+    { name = "Paul Schifferer", email = "dm@sweetrpg.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "marshmallow==3.26.1",
+    "sweetrpg-model-core",
+    "sweetrpg-api-core",
+    "sweetrpg-catalog-objects",
+    "requests~=2.0",
+    "jsonapi-client",
+    "opentelemetry-api",
+]
+
+[project.urls]
+Documentation = "https://sweetrpg.github.io/client"
+
+[project.scripts]
+sweetrpg-client = "sweetrpg_client.cli:main"
+
+[dependency-groups]
+test = [
+    "asgiref",
+    "blinker",
+    "coverage-badge~=1.0",
+    "pytest~=9.0",
+    "pytest-cov~=7.0",
+    "pytest-env",
+    "pytest-ordering",
+    "python-dotenv~=1.0",
+    "responses",
+]
+docs = [
+    "Pallets-Sphinx-Themes",
+    "Sphinx~=8.0",
+    "sphinx-issues",
+    "sphinxcontrib-log-cabinet",
+    "sphinx-tabs",
+    "rstcheck",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sweetrpg_client"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true
+source = [
+    "sweetrpg_client",
+    "tests",
+]
+
+[tool.coverage.paths]
+source = [
+    "src",
+    "*/site-packages",
+]
