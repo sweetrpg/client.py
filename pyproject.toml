@@ -41,7 +41,7 @@ test = [
     "asgiref",
     "blinker",
     "coverage-badge~=1.0",
-    "pytest~=9.0",
+    "pytest~=9.1",
     "pytest-cov~=7.0",
     "pytest-env",
     "pytest-ordering",
