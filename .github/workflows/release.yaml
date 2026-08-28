@@ -15,19 +15,106 @@ on:
         required: true
         type: string
 
+concurrency: release
+
+# Inlined from sweetrpg/github-actions' python-release.yaml rather than called as a reusable
+# workflow: PyPI's Trusted Publishing does not support reusable workflows - it validates the
+# OIDC token's workflow_ref claim against the *calling* workflow's own path, and a `uses:` call
+# resolves that claim to the reusable workflow's path instead (sweetrpg/github-actions/...),
+# which PyPI then rejects with "no corresponding publisher". Keep this file's steps in sync with
+# the reusable workflow by hand until PyPI adds official reusable-workflow support - see
+# https://github.com/pypa/gh-action-pypi-publish/issues/166.
 jobs:
-  release:
-    uses: sweetrpg/github-actions/.github/workflows/python-release.yaml@master
-    with:
-      tag: ${{ inputs.tag }}
-      # This repo manages dependencies with uv (pyproject.toml + uv.lock) - the reusable
-      # workflow's pip-requirements defaults don't apply (there is no requirements/tests.txt).
-      install-command: uv sync --group test
-      test-command: uv run pytest tests
-      publish-to-pypi: true
+  publish:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Generate token
+        id: ci_token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.SRPG_CI_APP_ID }}
+          private-key: ${{ secrets.SRPG_CI_PRIVATE_KEY }}
+
+      - name: Resolve tag
+        id: resolve_tag
+        run: |
+          echo "tag=${{ inputs.tag != '' && inputs.tag || github.ref_name }}" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.resolve_tag.outputs.tag }}
+          fetch-depth: 0 # full history required for git-cliff
+          fetch-tags: true
+          show-progress: true
+          submodules: recursive
+
+      - name: Install Python
+        id: install_python
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install git-cliff
+        id: install_git_cliff
+        uses: taiki-e/install-action@v2
+        with:
+          tool: git-cliff
+
+      - name: Install dependencies
+        run: uv sync --group test
+
+      - name: Test
+        run: uv run pytest tests
+
+      - name: Build sdist/wheel
+        id: build
+        run: |
+          uv pip install build
+          python -m build
+
       # PyPI rejected a token-authenticated publish here: "Uploading new files to releases
-      # older than 14 days is not allowed" (dormant since 2022). Requires a Trusted Publisher
-      # configured on the sweetrpg-client PyPI project: owner/repo=sweetrpg/client.py,
+      # older than 14 days is not allowed" (dormant since 2022). Trusted Publisher configured
+      # on the sweetrpg-client PyPI project: owner/repo=sweetrpg/client.py,
       # workflow filename=release.yaml.
-      pypi-trusted-publishing: true
-    secrets: inherit
+      - name: Publish to PyPI
+        id: publish_pypi
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+      - name: Generate changelog for this tag
+        id: changelog
+        run: |
+          git-cliff --current --strip header -o RELEASE_NOTES.md
+
+      - name: Create GitHub Release
+        id: github_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.resolve_tag.outputs.tag }}
+          body_path: RELEASE_NOTES.md
+
+      # Uses the "Merge a branch" REST API rather than a local `git merge` + `git push` - see
+      # go-release.yaml's identical step for why (signed-commit requirement on the merge-back
+      # branch, and a bypass actor sidestepping an unsatisfiable status check on a commit that
+      # never existed before this run).
+      - name: Merge back to develop
+        id: merge_back
+        env:
+          GH_TOKEN: ${{ steps.ci_token.outputs.token }}
+        run: |
+          gh api repos/${{ github.repository }}/merges \
+            -f base=develop \
+            -f head=master \
+            -f commit_message="chore(release): merge master into develop after ${{ steps.resolve_tag.outputs.tag }}"
