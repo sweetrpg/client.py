@@ -5,20 +5,22 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 
 from ..constants import *
 from ..types import *
-from sweetrpg_library_objects.api.volume.schema import VolumeAPISchema
-from sweetrpg_library_objects.api.person.schema import PersonAPISchema
-from sweetrpg_library_objects.api.contribution.schema import ContributionAPISchema
-from sweetrpg_library_objects.api.publisher.schema import PublisherAPISchema
-from sweetrpg_library_objects.api.studio.schema import StudioAPISchema
-from sweetrpg_library_objects.api.system.schema import SystemAPISchema
-from sweetrpg_library_objects.api.review.schema import ReviewAPISchema
-from sweetrpg_library_objects.model.volume import Volume
-from sweetrpg_library_objects.model.person import Person
-from sweetrpg_library_objects.model.contribution import Contribution
-from sweetrpg_library_objects.model.publisher import Publisher
-from sweetrpg_library_objects.model.system import System
-from sweetrpg_library_objects.model.studio import Studio
-from sweetrpg_library_objects.model.review import Review
+from sweetrpg_catalog_objects.api.volume.schema import VolumeAPISchema
+from sweetrpg_catalog_objects.api.license.schema import LicenseAPISchema
+from sweetrpg_catalog_objects.api.person.schema import PersonAPISchema
+from sweetrpg_catalog_objects.api.contribution.schema import ContributionAPISchema
+from sweetrpg_catalog_objects.api.publisher.schema import PublisherAPISchema
+from sweetrpg_catalog_objects.api.studio.schema import StudioAPISchema
+from sweetrpg_catalog_objects.api.system.schema import SystemAPISchema
+from sweetrpg_catalog_objects.api.review.schema import ReviewAPISchema
+from sweetrpg_catalog_objects.model.volume import Volume
+from sweetrpg_catalog_objects.model.person import Person
+from sweetrpg_catalog_objects.model.contribution import Contribution
+from sweetrpg_catalog_objects.model.publisher import Publisher
+from sweetrpg_catalog_objects.model.system import System
+from sweetrpg_catalog_objects.model.studio import Studio
+from sweetrpg_catalog_objects.model.review import Review
+from sweetrpg_catalog_objects.model.license import License
 
 
 _types = {
@@ -26,6 +28,11 @@ _types = {
         ENDPOINT_PATH: 'volumes',
         API_SCHEMA_CLASS: VolumeAPISchema,
         OBJECT_CLASS: Volume,
+    },
+    LICENSE: {
+        ENDPOINT_PATH: 'licenses',
+        API_SCHEMA_CLASS: LicenseAPISchema,
+        OBJECT_CLASS: License,
     },
     PERSON: {
         ENDPOINT_PATH: 'persons',

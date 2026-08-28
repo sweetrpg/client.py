@@ -8,8 +8,8 @@ from sweetrpg_client.client import Client
 from sweetrpg_client.types import VOLUME, PERSON
 import os
 import json
-from sweetrpg_library_objects.model.volume import Volume
-from sweetrpg_library_objects.model.person import Person
+from sweetrpg_shelf_objects.model.volume import Volume
+from sweetrpg_shelf_objects.model.person import Person
 from sweetrpg_client.exceptions import *
 
 def test_client():

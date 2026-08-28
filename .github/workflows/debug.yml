@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -54,7 +54,7 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-            registry.sweetrpg.com/sweetrpg-main-web
+            registry.sweetrpg.com/sweetrpg-client
           tags: |
             type=raw,value=latest
             type=raw,value=${{ steps.previoustag.outputs.tag }}
