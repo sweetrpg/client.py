@@ -2,6 +2,7 @@ name: Release
 
 permissions:
   contents: write
+  id-token: write
 
 on:
   push:
@@ -24,4 +25,9 @@ jobs:
       install-command: uv sync --group test
       test-command: uv run pytest tests
       publish-to-pypi: true
+      # PyPI rejected a token-authenticated publish here: "Uploading new files to releases
+      # older than 14 days is not allowed" (dormant since 2022). Requires a Trusted Publisher
+      # configured on the sweetrpg-client PyPI project: owner/repo=sweetrpg/client.py,
+      # workflow filename=release.yaml.
+      pypi-trusted-publishing: true
     secrets: inherit
