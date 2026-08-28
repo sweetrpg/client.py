@@ -1,3 +1,12 @@
+## [0.1.2] - 2026-08-28
+
+### 🐛 Bug Fixes
+
+- Refresh lockfile, fix stale test imports, scope one upstream warning
+
+### ⚙️ Miscellaneous Tasks
+
+- *(release)* Merge master into develop after v0.1.1 (release run failed before merge-back, pre-lockfile-fix)
 ## [0.1.1] - 2026-08-28
 
 ### 🐛 Bug Fixes
