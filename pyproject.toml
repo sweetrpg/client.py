@@ -50,7 +50,7 @@ test = [
 ]
 docs = [
     "Pallets-Sphinx-Themes",
-    "Sphinx~=8.0",
+    "Sphinx>=8,<10",
     "sphinx-issues",
     "sphinxcontrib-log-cabinet",
     "sphinx-tabs",
