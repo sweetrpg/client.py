@@ -21,7 +21,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "marshmallow==3.26.1",
+    "marshmallow==4.3.1",
     "sweetrpg-model-core",
     "sweetrpg-api-core",
     "sweetrpg-catalog-objects",
@@ -74,7 +74,7 @@ filterwarnings = [
     # `default=` kwarg (should be `dump_default`). Can't fix at the source - that repo's
     # develop branch has no code for this module (src/sweetrpg_catalog_objects/__init__.py
     # only), so whatever produced the published wheel isn't reachable to patch right now.
-    # Still functional under the pinned marshmallow==3.26.1, just deprecated.
+    # Still functional under the pinned marshmallow==4.3.1, just deprecated.
     "ignore::marshmallow.warnings.RemovedInMarshmallow4Warning",
 ]
 
